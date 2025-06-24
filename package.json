@@ -1,0 +1,44 @@
+{
+  "name": "ollama-chat",
+  "displayName": "Ollama Chat",
+  "description": "A VSCode extension to chat with Ollama models",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:ollamaChat.start"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ollamaChat.start",
+        "title": "Ollama Chat: Start Conversation"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.70.0",
+    "eslint": "^8.0.0",
+    "jest": "^28.0.0",
+    "typescript": "^4.7.0"
+  },
+  "dependencies": {
+    "boxen": "^8.0.1",
+    "chalk": "^5.4.1",
+    "ollama": "^0.5.16",
+    "vsce": "^2.15.0"
+  }
+}
