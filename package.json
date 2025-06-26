@@ -10,13 +10,13 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:ollamaChat.start"
+    "onCommand:ollamaChat.openChat"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "ollamaChat.start",
+        "command": "ollamaChat.openChat",
         "title": "Ollama Chat: Start Conversation"
       }
     ]
