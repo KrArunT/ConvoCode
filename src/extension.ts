@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import { Ollama } from 'ollama';
 
 export function activate(context: vscode.ExtensionContext) {
-  const config = vscode.workspace.getConfiguration('ollamaChat');
+  const config = vscode.workspace.getConfiguration('convocode');
 
   // Fallback to local Ollama API and a default model if none configured
   const baseUrl = config.get<string>('baseUrl') || 'http://127.0.0.1:11434';
@@ -11,10 +11,10 @@ export function activate(context: vscode.ExtensionContext) {
   const ollama = new Ollama({ host: baseUrl });
 
   // Register the command that opens our chat panel
-  const disposable = vscode.commands.registerCommand('ollamaChat.openChat', () => {
+  const disposable = vscode.commands.registerCommand('convocode.openChat', () => {
     const panel = vscode.window.createWebviewPanel(
-      'ollamaChat',
-      'Ollama Chat',
+      'convocode',                // viewType identifier
+      'ConvoCode Chat',           // panel title
       vscode.ViewColumn.One,
       {
         enableScripts: true,
@@ -76,6 +76,7 @@ function getWebviewContent(webview: vscode.Webview, defaultModel: string, models
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>ConvoCode Chat</title>
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-${nonce}' https:; style-src 'unsafe-inline';">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
@@ -156,4 +157,3 @@ function getNonce() {
 }
 
 export function deactivate() {}
-
