@@ -1,5 +1,5 @@
 # .github/workflows/publish.yml
-name: Publish VSCode Extension
+name: Convocode
 on:
   push:
     tags:
