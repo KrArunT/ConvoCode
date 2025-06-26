@@ -1,7 +1,7 @@
 {
-  "name": "ollama-chat",
-  "displayName": "Ollama Chat",
-  "description": "A VSCode extension to chat with Ollama models",
+  "name": "convocode",
+  "displayName": "ConvoCode Chat",
+  "description": "A VSCode extension to chat with Ollama models via ConvoCode",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.70.0"
@@ -10,14 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:ollamaChat.openChat"
+    "onCommand:convocode.openChat"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "ollamaChat.openChat",
-        "title": "Ollama Chat: Start Conversation"
+        "command": "convocode.openChat",
+        "title": "ConvoCode Chat: Start Conversation"
       }
     ]
   },
