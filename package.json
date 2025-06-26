@@ -1,8 +1,13 @@
 {
   "name": "convocode",
+  "publisher": "Infobell-IT",
   "displayName": "ConvoCode Chat",
   "description": "A VSCode extension to chat with Ollama models via ConvoCode",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KrArunT/vs-chat.git"
+    },
   "engines": {
     "vscode": "^1.70.0"
   },
