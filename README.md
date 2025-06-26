@@ -12,6 +12,9 @@ A Visual Studio Code extension that lets you chat with Ollama models directly fr
 
 ## Prerequisites
 
+* Install Ollama
+* `curl -fsSL https://ollama.com/install.sh | sh`
+* `ollama run qwen3:0.6b`
 * [Node.js](https://nodejs.org/) v14 or higher
 * [Visual Studio Code](https://code.visualstudio.com/) v1.70.0 or higher
 * A running Ollama API server (by default: `http://127.0.0.1:11434`)
