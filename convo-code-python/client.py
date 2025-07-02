@@ -44,8 +44,21 @@ load_dotenv()
 # Constants
 # ---------------------------------------------------------------------------
 
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434/v1")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen3:0.6b")
+# OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434/v1")
+# "https://generativelanguage.googleapis.com/v1beta/openai/"
+# OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen3:0.6b")
+
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "https://generativelanguage.googleapis.com/v1beta/openai/")
+
+OLLAMA_MODEL = os.getenv("MODEL", "gemini-2.5-flash")
+# This must be set in your environment or .env file
+API_KEY = os.getenv("GEMINI_API_KEY")
+
+if not API_KEY:
+    raise EnvironmentError(
+        "Missing GEMINI_API_KEY: "
+        "please export it or add GEMINI_API_KEY=your_key to your .env file"
+    )
 
 # ---------------------------------------------------------------------------
 # Helper utilities
@@ -144,7 +157,7 @@ class MultiMCPClient:
     # --------------------------------------------------------------
 
     def __init__(self) -> None:
-        self.openai = openai.AsyncClient(base_url=OLLAMA_BASE_URL, api_key="ollama")
+        self.openai = openai.AsyncClient(base_url=OLLAMA_BASE_URL, api_key=API_KEY)
         self.exit_stack = AsyncExitStack()
         self.sessions: List[ClientSession] = []
         self.tool_index: Dict[str, ClientSession] = {}  # tool‑name → session
