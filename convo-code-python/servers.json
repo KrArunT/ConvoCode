@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "~/workspace/MCP/MCP_client/quickstart-resources/mcp-client-python"
+      ]
+    }
+  }
+}
